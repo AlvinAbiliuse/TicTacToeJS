@@ -53,6 +53,7 @@ function newGame() {
 	}
 
 	let n = 0
+	/*
 	while (true) {
 		playTurn(window.prompt("user1 turn"), user1);
 		tt = checkGame(newPlayer, user1);
@@ -67,7 +68,7 @@ function newGame() {
 			console.log(tt);
 			return false;
 		}
-	}
+	} */
 }
 
 newGame();
