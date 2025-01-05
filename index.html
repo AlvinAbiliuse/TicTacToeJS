@@ -9,23 +9,25 @@
 <body>
 	<div class="sidebar">
 		<button class="newGame">New Game</button>
-		<dialog>
-			<h1>Choose Player1</h2>
-		</dialog>
-		<div class="result">Player 1 Wins!</div>
+		<div class="result">It's a Tie!</div>
 	</div>
 			
 	<div class="board">
-		<div class="a" id="a0">x</div>
-		<div class="a" id="a1"></div>
-		<div class="a" id="a2">o</div>
-		<div class="b" id="b0"></div>
-		<div class="b" id="b1">x</div>
-		<div class="b" id="b2"></div>
-		<div class="c" id="c0">o</div>
-		<div class="c" id="c1">o</div>
-		<div class="c" id="c2">x</div>
+		<div class="a empty" id="a0"></div>
+		<div class="a empty" id="a1"></div>
+		<div class="a empty" id="a2"></div>
+		<div class="b empty" id="b0"></div>
+		<div class="b empty" id="b1"></div>
+		<div class="b empty" id="b2"></div>
+		<div class="c empty" id="c0"></div>
+		<div class="c empty" id="c1"></div>
+		<div class="c empty" id="c2"></div>
 	</div>
+
+	<dialog>
+		<h1>Choose Player1</h2>
+		<button>x</button><button>o</button>
+	</dialog>
 
 
 	<script src="./script.js"></script>
