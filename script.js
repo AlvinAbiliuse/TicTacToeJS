@@ -75,18 +75,17 @@ function endGame(result, user) {
 	console.log(result);
 	console.log(user);
 	if (result == "Game Over" && user == "player1") {
-		msgEl.textContent = "Player 1 Wins!";
+		msgEl.textContent = user2Name + " Wins!";
 	} else if (result == "Game Over" && user == "player2") {
-		msgEl.textContent = "Player 2 Wins!";
+		msgEl.textContent = user1Name + " Wins!";
 	} else {
 		msgEl.textContent = "It's a Tie";
 	}
 	currentPlayer = "";
-	console.log(currentPlayer);
 }		
 	
 let currentPlayer = "";
-let newPlayer, user1, user2, result;
+let newPlayer, user1, user2, user1Name, user2Name, result;
 
 const newGameButton = document.querySelector(".newGame");
 const modal = document.querySelector("dialog");
@@ -97,14 +96,23 @@ const msgEl = document.querySelector(".result");
 newGameButton.addEventListener("click", () => modal.showModal());
 
 selectButton.addEventListener("click", (e) => {
+			user1Name = document.querySelector(".p1").value;
+			user2Name = document.querySelector(".p2").value;
+			if (user1Name.length = 0) {
+				user1Name = "Player 1";
+			}
+			if (user2Name.length = 0) {
+				user1Name = "Player 2";
+			}
+		
 			if (e.target.textContent == "x") {
 				modal.close();
 				newGame("x");
-				msgEl.textContent = "Player 1 turn"
+				msgEl.textContent = user1Name + "'s turn"
 			} else if (e.target.textContent == "o") {
 				modal.close();
 				newGame("o");
-				msgEl.textContent = "Player 1 turn"
+				msgEl.textContent = user1Name + "'s turn"
 			}
 			currentPlayer = "player1";
 			updateDOM()
@@ -114,10 +122,10 @@ const gameBoard = document.querySelector(".board");
 gameBoard.addEventListener("click", (e) => {
 	if (currentPlayer.length > 1 && 
 		e.target.textContent.length == 0) {
-			if (msgEl.textContent == "Player 1 turn") {
-				msgEl.textContent = "Player 2 turn";
+			if (msgEl.textContent == user1Name + "'s turn") {
+				msgEl.textContent = user2Name + "'s turn";
 			} else {
-				msgEl.textContent = "Player 1 turn";
+				msgEl.textContent = user1Name + "'s turn";
 			}	
 			if (currentPlayer == "player1") {
 				playTurn(e.target.id, user1, e);
