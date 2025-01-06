@@ -54,22 +54,34 @@ function newGame() {
 
 	let n = 0
 	while (true) {
-		playTurn(window.prompt("user1 turn"), user1);
+		let result = document.querySelector(".result");
+		
+		result.textContent = "Player 1 turn"
+		playTurn(window.prompt("Player 1 turn"), user1);
 		tt = checkGame(newPlayer, user1);
 		if (tt != undefined) {
-			console.log(tt);
+			if (tt == "Game Over") {
+				result.textContent = "Player 1 Wins!"
+			} else {
+				result.textContent = tt;
+			}
 			return false;
 		}
-	
-		playTurn(window.prompt("user2 turn"), user2);
+		result.textContent = "Player 2 turn"	
+		playTurn(window.prompt("Player 2 turn"), user2);
 		tt = checkGame(newPlayer, user2);
 		if (tt != undefined) {
-			console.log(tt);
+			if (tt == "Game Over") {
+				result.textContent = "Player 2 Wins!"
+			} else {
+				result.textContent = tt;	
+			}
 			return false;
 		}
 	}
 }
 
+let newPlayer, user1, user2, result;
 newGame();
 
 
