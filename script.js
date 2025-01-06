@@ -37,27 +37,22 @@ function checkGame(board, user){
 	}
 }
 
-function addToDom(board, result) {
-
-}
-
 function newGame() {
 	let newPlayer = createBoard();
-	let result = "";
-	let user1 = "x"/*window.prompt("X or O");*/
+	let user1 = "X"/*window.prompt("X or O");*/
 	let user2, tt;
-	if (user1 == "x") {
-		user2 = "o";
+	if (user1 == "X") {
+		user2 = "O";
 	} else {
-		user2 = "x";
+		user2 = "X";
 	}
 
 	function playTurn(place, user) {
-		let placeArr = place.split(" ");
+		let placeArr = place.split("");
 		newPlayer[placeArr[0]][Number(placeArr[1])] = user;
 	}
 
-	/*
+	let n = 0
 	while (true) {
 		playTurn(window.prompt("user1 turn"), user1);
 		tt = checkGame(newPlayer, user1);
@@ -72,12 +67,9 @@ function newGame() {
 			console.log(tt);
 			return false;
 		}
-	} */
+	}
 }
 
-const newButton = document.querySelector(".newGame");
-const modal = document.querySelector("dialog");
-newButton.addEventListener("click", () => modal.showModal());
 newGame();
 
 
