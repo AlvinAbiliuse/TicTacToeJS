@@ -46,27 +46,27 @@ function newGame(user) {
 	} else {
 		user2 = "x";
 	}
-	console.log(newPlayer);
-	console.log(user1);
-	console.log(user2);
-	console.log(result);
 }
 
 function updateDOM() {
-
-
+	let boardEl = document.querySelector(".board");
+	boardEl.querySelector("#a0").textContent = newPlayer["a"][0];
+	boardEl.querySelector("#a1").textContent = newPlayer["a"][1];
+	boardEl.querySelector("#a2").textContent = newPlayer["a"][2];
+	boardEl.querySelector("#b0").textContent = newPlayer["b"][0];
+	boardEl.querySelector("#b1").textContent = newPlayer["b"][1];
+	boardEl.querySelector("#b2").textContent = newPlayer["b"][2];
+	boardEl.querySelector("#c0").textContent = newPlayer["c"][0];
+	boardEl.querySelector("#c1").textContent = newPlayer["c"][1];
+	boardEl.querySelector("#c2").textContent = newPlayer["c"][2];
 }
 
 function playTurn(place, user, e) {
 	let placeArr = place.split("");
 	newPlayer[placeArr[0]][Number(placeArr[1])] = user;
 	if (currentPlayer == "player1") {
-		console.log(e.target.id);
-		e.target.textContent = user;
 		currentPlayer = "player2";
 	} else if (currentPlayer == "player2"){
-		console.log(e.target.id);
-		e.target.textContent = user;
 		currentPlayer = "player1";
 	}
 }
@@ -107,6 +107,7 @@ selectButton.addEventListener("click", (e) => {
 				msgEl.textContent = "Player 1 turn"
 			}
 			currentPlayer = "player1";
+			updateDOM()
 });
 
 const gameBoard = document.querySelector(".board");
@@ -126,6 +127,7 @@ gameBoard.addEventListener("click", (e) => {
 				checkGame(newPlayer, user2);
 			}
 		}
+	updateDOM();
 	});
 		
 			
