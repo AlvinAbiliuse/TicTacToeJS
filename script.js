@@ -63,54 +63,26 @@ function playTurn(place, user, e) {
 	if (currentPlayer == "player1") {
 		console.log(e.target.id);
 		e.target.textContent = user;
-	} else {
+		currentPlayer = "player2";
+	} else if (currentPlayer == "player2"){
 		console.log(e.target.id);
 		e.target.textContent = user;
+		currentPlayer = "player1";
 	}
 }
 
-/*
-	let n = 0
-	while (true) {
-		let result = document.querySelector(".result");
-		
-		result.textContent = "Player 1 turn"
-		playTurn(window.prompt("Player 1 turn"), user1);
-		tt = checkGame(newPlayer, user1);
-		if (tt != undefined) {
-			if (tt == "Game Over") {
-				result.textContent = "Player 1 Wins!"
-			} else {
-				result.textContent = tt;
-			}
-			return false;
-		}
-		result.textContent = "Player 2 turn"	
-		playTurn(window.prompt("Player 2 turn"), user2);
-		tt = checkGame(newPlayer, user2);
-		if (tt != undefined) {
-			if (tt == "Game Over") {
-				result.textContent = "Player 2 Wins!"
-			} else {
-				result.textContent = tt;	
-			}
-			return false;
-		}
-	}
-}
-
-*/
 function endGame(result, user) {
 	console.log(result);
 	console.log(user);
 	if (result == "Game Over" && user == "player1") {
-		result.textContent = "Player 1 Wins!";
+		msgEl.textContent = "Player 1 Wins!";
 	} else if (result == "Game Over" && user == "player2") {
-		result.textContent = "Player 2 Wins!";
+		msgEl.textContent = "Player 2 Wins!";
 	} else {
-		result.textContent = result;
+		msgEl.textContent = "It's a Tie";
 	}
 	currentPlayer = "";
+	console.log(currentPlayer);
 }		
 	
 let currentPlayer = "";
@@ -149,11 +121,9 @@ gameBoard.addEventListener("click", (e) => {
 			if (currentPlayer == "player1") {
 				playTurn(e.target.id, user1, e);
 				checkGame(newPlayer, user1);
-				currentPlayer = "player2";
 			} else if (currentPlayer == "player2") {
 				playTurn(e.target.id, user2, e);
 				checkGame(newPlayer, user2);
-				currentPlayer = "player1";
 			}
 		}
 	});
