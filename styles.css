@@ -94,7 +94,7 @@ button:hover {
 dialog {
 	position: fixed;
 	width: 300px;
-	top: 20%;
+	top: 15%;
 	left: 35%;
 	padding: 50px;
 	border: none;
@@ -115,6 +115,23 @@ dialog::backdrop {
 	background: rgb(0 0 0 / 50%);
 }
 
+label {
+	height: 50px;
+	padding-bottom: 20px;
+}
+
+input {
+	border: 1px solid #543A14;
+	height: 30px;
+	outline: none;
+	border-radius: 10px;
+	padding: 5px 10px;
+	margin: 10px 0px 20px 0px;
+}
+
+input:focus {
+	border-color: #F0BB78;
+}
 
 
 
