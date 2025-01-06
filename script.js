@@ -37,21 +37,32 @@ function checkGame(board, user){
 	}
 }
 
-function newGame() {
-	let newPlayer = createBoard();
-	let user1 = "X"/*window.prompt("X or O");*/
-	let user2, tt;
-	if (user1 == "X") {
-		user2 = "O";
+function newGame(user) {
+	newPlayer = createBoard();
+	user1 = user /* value passed from the event Listener */
+	result = ""
+	if (user1 == "x") {
+		user2 = "o";
 	} else {
-		user2 = "X";
+		user2 = "x";
 	}
+	console.log(newPlayer);
+	console.log(user1);
+	console.log(user2);
+	console.log(result);
+}
 
-	function playTurn(place, user) {
-		let placeArr = place.split("");
-		newPlayer[placeArr[0]][Number(placeArr[1])] = user;
-	}
+function updateDOM() {
 
+
+}
+
+function playTurn(place, user) {
+	let placeArr = place.split("");
+	newPlayer[placeArr[0]][Number(placeArr[1])] = user;
+}
+
+/*
 	let n = 0
 	while (true) {
 		let result = document.querySelector(".result");
@@ -81,8 +92,27 @@ function newGame() {
 	}
 }
 
+*/
+
+let currentPlayer = "user1";
 let newPlayer, user1, user2, result;
-newGame();
+
+const newGameButton = document.querySelector(".newGame");
+const modal = document.querySelector("dialog");
+const selectButton = document.querySelector(".choice");
+
+newGameButton.addEventListener("click", () => modal.showModal());
+
+selectButton.addEventListener("click", (e) => {
+			if (e.target.textContent == "x") {
+				modal.close();
+				newGame("x");
+			} else if (e.target.textContent == "o") {
+				modal.close();
+				newGame("o");
+			}
+});
+			
 
 
 
